@@ -12,6 +12,13 @@ class App extends Component {
     };
 
     this.addTodo = this.addTodo.bind(this);
+    this.resetTodo = this.resetTodo.bind(this);
+  }
+
+  resetTodo(){
+    this.setState({
+      tasks: [],
+    });
   }
 
   addTodo(title){
@@ -35,6 +42,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>TODO App</h1>
+        <button onClick={this.resetTodo}>Clear</button>
         <TodoInput addTodo={this.addTodo}/>
         <TodoList tasks={this.state.tasks}/>
       </div>
